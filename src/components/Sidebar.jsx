@@ -1,28 +1,42 @@
 import React,{useState} from 'react'
-import {data,model} from '../data2'
+import {data,model,product} from '../data2'
 const Sidebar = () => {
     const [items,setItems]=useState(data);
     const [models,setModel]=useState(model);
-    console.log(items);
+    const [products,setProduct]=useState(product);
+
+    
+    const filterResult=(catItem)=>{
+      console.log("catItem");
+       const result =products.filter((curData=>{
+        return curData.product_category_name===catItem;
+       }))
+       console.log(result);
+       setProduct(result)
+   
+    }
+
   return (
     <div>
-        <div>Category</div>
-      <select>
-        <option>fhbj</option>
-        <option>fhbj</option>
-      </select>
+        <div className=''>Category</div>
+        <button onClick={()=>filterResult("Boys")}>boys</button>
+        <button onClick={()=>filterResult("Ladies")}>Ladies</button>
+        <button onClick={()=>filterResult("Gents")}>Gents</button>
+        <button onClick={()=>filterResult("Gents Giant")}>Gents Giant</button>
+        <button onClick={()=>filterResult("Ladies Giant")}>Ladies Giant</button>
+      
 
 
       <div>Brand</div>
       
    
-      <select>
+      
       {items.map((item) => (
         <>
-        <option>{item.name}</option>
+        <button className='flex' onClick={()=>filterResult('Nike')}>{item.name}</button>
         </>
         ))}
-        </select>
+       
   
       
      

@@ -17,7 +17,7 @@ export default function Product() {
     <>
      
     <Card sx={{display:'flex',justifyContent:'space-around',marginTop:10 }}>
-    <Sidebar/>
+   
       {items.map((item) => (
         <div style={{ maxWidth: 345}}>
          <CardMedia
@@ -49,7 +49,7 @@ export default function Product() {
      
       ))}
     </Card>
-  
+    <Sidebar/>
     </>
   )
 }
